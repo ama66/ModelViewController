@@ -15,6 +15,7 @@ class View(tk.Tk):
     button_captions=['C','+/-','/',
                      7,8,9,'*',
                      4,5,6,'-',
+                     1,2,3,'+',
                      0,'.','=']
     
     
@@ -39,7 +40,7 @@ class View(tk.Tk):
         
         
     def _make_entry(self):
-        ent=ttk.Entry(self.main_frm, justify='right', textvariable=self.value_var)
+        ent=ttk.Entry(self.main_frm, justify='right', textvariable=self.value_var, state="disabled")
         ent.pack(fill='x')
         
         
@@ -55,12 +56,14 @@ class View(tk.Tk):
             if buttons_in_row==self.MAX_BUTTONS_PER_ROW:
                 frm=ttk.Frame(outer_frm)
                 frm.pack()
+                
                 buttons_in_row=0
                 
                 
-            btn=ttk.Button(frm,text=caption)
+            btn=ttk.Button(frm,text=caption, command= lambda button=caption: self.controller.on_button_click(button))
             btn.pack(side='left')
             buttons_in_row+=1 
+            
             
             
             
