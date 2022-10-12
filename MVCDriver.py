@@ -2,7 +2,7 @@
 """
 Created on Wed Oct 12 11:13:36 2022
 
-@author: Ammar
+@author: amohammed
 """
 from model import Model 
 from view import View
@@ -19,6 +19,13 @@ class Controller:
         
     def main(self):
         self.view.main()
+        
+    def on_button_click(self,caption):
+       # print(f'button {caption} clicked')
+        result=self.model.calculate(caption)
+        self.view.value_var.set((result))
+
+        
         
         
         
