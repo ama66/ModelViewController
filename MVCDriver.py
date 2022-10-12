@@ -2,7 +2,7 @@
 """
 Created on Wed Oct 12 11:13:36 2022
 
-@author: amohammed
+@author: Ammar
 """
 from model import Model 
 from view import View
